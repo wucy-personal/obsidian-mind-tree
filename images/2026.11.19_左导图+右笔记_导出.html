@@ -1,0 +1,267 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>思维树 · 截图1 Hero(导图 × 笔记一体化)</title>
+    <style>
+      :root {
+        --bg: #0e1013;
+        --panel: #171a1f;
+        --line: #262b33;
+        --text: #f2f4f7;
+        --text-2: #9aa2ad;
+        --text-3: #6d7683;
+        --accent: #3ec06e;
+      }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        background: #08090b;
+        font-family: -apple-system, 'Segoe UI', 'Microsoft YaHei', 'PingFang SC', 'Noto Sans SC', sans-serif;
+        padding: 24px;
+        overflow-x: auto;
+      }
+
+      /* ── 画板:1920 × 1120 ── */
+      .artboard {
+        width: 1920px;
+        height: 1120px;
+        margin: 0 auto;
+        background: radial-gradient(1400px 900px at 72% 38%, #13171d 0%, var(--bg) 62%);
+        border: 1px solid var(--line);
+        border-radius: 18px;
+        display: flex;
+        align-items: center;
+        padding: 0 72px;
+        overflow: hidden;
+      }
+
+      /* ── 左栏文案 ── */
+      .rail {
+        width: 452px;
+        flex: none;
+        color: var(--text);
+      }
+      .brand {
+        display: flex;
+        align-items: baseline;
+      }
+      .brand strong {
+        font-size: 22px;
+        font-weight: 700;
+        letter-spacing: 2px;
+      }
+      .brand span {
+        font-size: 13px;
+        color: var(--text-3);
+        margin-left: 12px;
+        letter-spacing: 1px;
+      }
+      .rail h1 {
+        margin-top: 30px;
+        font-size: 52px;
+        line-height: 1.32;
+        font-weight: 700;
+        letter-spacing: 2px;
+      }
+      .rail .sub {
+        margin-top: 24px;
+        font-size: 16px;
+        line-height: 1.95;
+        color: var(--text-2);
+      }
+      .legend {
+        margin-top: 40px;
+        list-style: none;
+      }
+      .legend li {
+        font-size: 15px;
+        color: #c9ced6;
+        line-height: 2.2;
+      }
+      .legend b {
+        color: var(--accent);
+        font-weight: 600;
+        margin-right: 10px;
+      }
+      .legend small {
+        color: var(--text-3);
+        margin-left: 10px;
+        font-size: 13px;
+      }
+      .spec {
+        margin-top: 46px;
+        font-size: 12.5px;
+        color: var(--text-3);
+        letter-spacing: 1px;
+      }
+
+      /* ── 右侧截图(带边框相框) ── */
+      .shot {
+        flex: none;
+        margin-left: 52px;
+        background: var(--panel);
+        border: 1px solid var(--line);
+        border-radius: 14px;
+        padding: 10px;
+      }
+      .shot-inner {
+        position: relative;
+        width: 1240px;
+      }
+      .shot-inner > img {
+        display: block;
+        width: 100%;
+        border-radius: 8px;
+      }
+
+      /* ── 图片内标注层 ── */
+      .anno {
+        position: absolute;
+        width: 0;
+        height: 0;
+      }
+      .anno .chip {
+        position: absolute;
+        left: 0;
+        top: 0;
+        transform: translate(-50%, -50%);
+        width: 26px;
+        height: 26px;
+        border-radius: 50%;
+        background: var(--accent);
+        color: #06240f;
+        font-size: 14px;
+        font-weight: 700;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 2px solid rgba(14, 16, 19, 0.9);
+      }
+      .anno .pill {
+        position: absolute;
+        white-space: nowrap;
+        background: rgba(23, 26, 31, 0.95);
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        color: #e8ebef;
+        font-size: 14px;
+        font-weight: 600;
+        letter-spacing: 0.5px;
+        padding: 8px 14px;
+      }
+      /* ① 钉在「左导图,右笔记」徽章右上角外,说明放其下方空白区 */
+      .anno-1 {
+        left: 41.5%;
+        top: 35.5%;
+      }
+      .anno-1 .pill {
+        left: 24px;
+        top: 110px;
+      }
+      /* ② 钉在「二级节点」右上角外,说明放其正上方空白区 */
+      .anno-2 {
+        left: 20.9%;
+        top: 35.5%;
+      }
+      .anno-2 .pill {
+        left: -95px;
+        top: -84px;
+      }
+      /* ①② 连线,JS 运行时按 chip/pill 实际位置绘制 */
+      .stub {
+        position: absolute;
+        height: 2px;
+        border-radius: 1px;
+        background: var(--accent);
+        opacity: 0.8;
+        transform-origin: 0 50%;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="artboard" id="artboard">
+      <aside class="rail">
+        <div class="brand">
+          <strong>思维树</strong>
+          <span>MIND TREE · Obsidian 插件</span>
+        </div>
+        <h1>
+          让每一条笔记,
+          <br />
+          长在知识树上
+        </h1>
+        <p class="sub">
+          思维导图做骨架,Markdown 笔记做枝叶。
+          <br />
+          节点与笔记双向绑定,同步生长。
+        </p>
+        <ul class="legend">
+          <li>
+            <b>①</b>
+            节点 ↔ 笔记 双向跳转
+            <small>导图上点击,笔记即达</small>
+          </li>
+          <li>
+            <b>②</b>
+            每个节点 = 一篇独立笔记
+            <small>Markdown 文件即节点</small>
+          </li>
+        </ul>
+        <p class="spec">.mtf 思维导图 × Markdown 笔记 · 支持 AI 归档 / MCP / 本体视图</p>
+      </aside>
+
+      <figure class="shot">
+        <div class="shot-inner" id="shot-inner">
+          <img src="./2026.11.19_左导图+右笔记.png" alt="思维树:左侧思维导图,右侧对应笔记" />
+          <div class="anno anno-1">
+            <span class="chip">①</span>
+            <span class="pill">节点 ↔ 笔记 双向跳转</span>
+          </div>
+          <div class="anno anno-2">
+            <span class="chip">②</span>
+            <span class="pill">每个节点 = 一篇独立笔记</span>
+          </div>
+          <div id="stub-layer"></div>
+        </div>
+      </figure>
+    </div>
+
+    <script>
+      // 画 ①② 连线:chip 中心 → pill 中心,两端各留出遮挡余量
+      function drawStubs() {
+        var layer = document.getElementById('stub-layer');
+        var host = document.getElementById('shot-inner').getBoundingClientRect();
+        var annos = document.querySelectorAll('.anno');
+        for (var i = 0; i < annos.length; i++) {
+          var chip = annos[i].querySelector('.chip');
+          var pill = annos[i].querySelector('.pill');
+          var a = chip.getBoundingClientRect();
+          var b = pill.getBoundingClientRect();
+          var ax = a.left + a.width / 2 - host.left;
+          var ay = a.top + a.height / 2 - host.top;
+          var bx = b.left + b.width / 2 - host.left;
+          var by = b.top + b.height / 2 - host.top;
+          var dx = bx - ax,
+            dy = by - ay;
+          var rad = Math.atan2(dy, dx);
+          var trim = 16;
+          var len = Math.hypot(dx, dy) - trim * 2;
+          var s = document.createElement('div');
+          s.className = 'stub';
+          s.style.left = ax + Math.cos(rad) * trim + 'px';
+          s.style.top = ay + Math.sin(rad) * trim + 'px';
+          s.style.width = len + 'px';
+          s.style.transform = 'rotate(' + (rad * 180) / Math.PI + 'deg)';
+          layer.appendChild(s);
+        }
+      }
+
+      window.addEventListener('load', drawStubs);
+    </script>
+  </body>
+</html>

@@ -18,9 +18,14 @@
 
 - The map is your **knowledge skeleton**: the hierarchical classification itself is the path of thinking, so "how the knowledge was derived" is preserved too.
 - Topics carry the **information content**: each topic maps to a standalone note, one click away.
-- AI assists **deep thinking**: automatically filing messy notes, classifying them by knowledge use, and expanding topics through conversation.
 
 It's not another "drawing tool" — it turns your vault into a **growing tree of knowledge**.
+
+![Left mind map, right note](images/2026.11.19_左导图+右笔记_导出.png)
+
+**Basic feature demo:**
+
+![Basic feature demo](images/2026.11.19_基础功能.gif)
 
 ---
 
@@ -39,33 +44,9 @@ It's not another "drawing tool" — it turns your vault into a **growing tree of
 - **Topic note templates**: new topics can carry default content, compatible with Templater dynamic syntax.
 - **Visual note properties**: the note's property labels are shown directly on map nodes, with customizable colors and icons.
 
-### 3. AI Assistant (Mind Tree AI)
-
-> Mind Tree AI is currently in a **free trial period**; it will become part of the premium membership later.
-
-#### 1. Node-level AI Actions
-
-Select any topic to start a conversation, in two modes:
-
-- **Instruction chat**: use preset or custom instruction templates to act on the current topic's note; results are saved as child topics automatically.
-- **Free chat**: chat directly with the current topic's content, with optional inclusion of the parent topic as context.
-- **Custom instructions**: configure any number of chat instructions (name, prompt, icon) in settings.
-
-#### 2. AI Model Management
-
-- Compatible with any OpenAI-format model provider.
-- Supports multiple models — different tasks can use different models (e.g. simple classification on a cheaper model).
-
-#### 3. Local AI Service (MCP)
-
-Once enabled, external AI tools (e.g. AI coding assistants) can access your Mind Tree: read and write the map, search and edit the knowledge base.
-
-- Each tool can be toggled on or off individually.
-- Local access only by default, safe and under your control; external access can be enabled in settings.
-
 ---
 
-## Settings (Eight Tabs)
+## Settings (Seven Tabs)
 
 Settings are grouped into tabs by feature:
 
@@ -73,7 +54,6 @@ Settings are grouped into tabs by feature:
 - **Mind Map**: default theme, expand level on open, title wrap width, default read-only mode, auto-save, mouse wheel / left-right button behavior, mark count and position.
 - **Topic Notes**: open behavior and location, default content, template path, node mark toggles.
 - **Knowledge Management**: knowledge-base manager toggle, knowledge type and property configuration.
-- **Mind Tree AI**: AI assistant master switch, model list, custom chat instructions, local AI service (port / access credentials / tool toggles).
 - **More Settings**: import folder location, GET note authorization, log level, debug options.
 - **Premium**: license code management and activation (hidden together with author info when the author info is hidden).
 - **About**: philosophy, WeChat official account, Bilibili, user manual, feedback channels.
@@ -84,7 +64,7 @@ Settings are grouped into tabs by feature:
 
 ### Option 1: From the Obsidian Community Plugins Marketplace
 
-(Not yet available — stay tuned)
+Now available: [Mind Tree](https://community.obsidian.md/plugins/mind-tree) on the marketplace. In Obsidian, open Settings → Community plugins → Browse, search for "Mind Tree", and install.
 
 ### Option 2: Manual Installation
 
