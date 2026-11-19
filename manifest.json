@@ -1,9 +1,9 @@
 {
   "id": "mind-tree",
-  "name": "MindTree",
-  "version": "1.1.40",
+  "name": "Mind Tree",
+  "version": "1.1.41",
   "minAppVersion": "1.13.0",
-  "description": "AI-driven mind mapping with node-based notes. Every action sparks deeper thinking; knowledge grows like a tree.",
+  "description": "MindTree: AI-driven knowledge management. Mindmap as your knowledge skeleton, each topic linked to notes; with AI note filing, knowledge base & ontology management, and a built-in MCP server.",
   "author": "jzcy",
   "authorUrl": "https://flowus.cn/jzcy/share/4ce27dd8-615f-4398-aef4-eb0dce751249",
   "fundingUrl": "https://flowus.cn/jzcy/share/4ce27dd8-615f-4398-aef4-eb0dce751249",
