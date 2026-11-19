@@ -1,10 +1,10 @@
 {
   "id": "mind-tree",
-  "name": "Mind Tree",
-  "version": "1.1.39",
+  "name": "MindTree",
+  "version": "1.1.40",
   "minAppVersion": "1.13.0",
-  "description": "思维树：AI驱动的思维导图笔记，让每次操作都激发深度思考，知识如树生长.",
-  "author": "瑾智初源",
+  "description": "AI-driven mind mapping with node-based notes. Every action sparks deeper thinking; knowledge grows like a tree.",
+  "author": "jzcy",
   "authorUrl": "https://flowus.cn/jzcy/share/4ce27dd8-615f-4398-aef4-eb0dce751249",
   "fundingUrl": "https://flowus.cn/jzcy/share/4ce27dd8-615f-4398-aef4-eb0dce751249",
   "isDesktopOnly": true
