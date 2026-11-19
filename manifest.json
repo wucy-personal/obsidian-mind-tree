@@ -1,7 +1,7 @@
 {
   "id": "mind-tree",
   "name": "Mind Tree",
-  "version": "1.1.41",
+  "version": "1.1.42",
   "minAppVersion": "1.13.0",
   "description": "MindTree: AI-driven knowledge management. Mindmap as your knowledge skeleton, each topic linked to notes; with AI note filing, knowledge base & ontology management, and a built-in MCP server.",
   "author": "jzcy",
